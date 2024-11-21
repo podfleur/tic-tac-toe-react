@@ -16,7 +16,7 @@ export default function Game() {
   const winningSquares = winnerInfo ? winnerInfo.line : null;
 
   const indexes = history.map(({location}, historyIndex) => (
-    <Move jumpTo={jumpTo} location={location} historyIndex={historyIndex} currentMove={currentMove} />
+    <Move key={`move-${historyIndex}`} jumpTo={jumpTo} location={location} historyIndex={historyIndex} currentMove={currentMove} />
   ))
 
   function handlePlay(nextSquares, location) {
@@ -37,7 +37,7 @@ export default function Game() {
 
     <div className="game">
       <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} winningSquares={winningSquares}  />
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} winningSquares={winningSquares} winnerInfo={winnerInfo} />
       </div>
       <div className="game-info">
         <ToggleSortOrder isAscending={isAscending} sortOrder={sortOrder} />
