@@ -4,7 +4,7 @@ export const useDescription = (location, move, currentMove) => {
 
     switch (move) {
         case currentMove:
-            return ('Tour actuel : ' + move);
+            return null;
         case 0:
             return ('Revenir au début');
         default:
